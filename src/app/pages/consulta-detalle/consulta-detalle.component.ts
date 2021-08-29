@@ -35,6 +35,11 @@ export class ConsultaDetalleComponent implements OnInit {
       confirmButtonText: 'Si, eliminalo!'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.departamentoService.DeleteDetalleEmpleado(empleado.id)
+          .subscribe(resp => {
+            console.log(resp);
+            this.ngOnInit();
+          });
         Swal.fire(
           'Eliminado!',
           'Empleado ha sido eliminado.',
@@ -43,5 +48,7 @@ export class ConsultaDetalleComponent implements OnInit {
       }
     })
     console.log("se elimino", empleado)
+
   }
+
 }

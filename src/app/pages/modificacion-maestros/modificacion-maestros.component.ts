@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DepartamentoService } from '../../service/departamento.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-modificacion-maestros',
   templateUrl: './modificacion-maestros.component.html',
@@ -14,7 +14,8 @@ export class ModificacionMaestrosComponent implements OnInit {
   exitoso: boolean = false;
   constructor(private fb: FormBuilder,
     private departamentoService: DepartamentoService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private router: Router) {
     this.departamentoForm = fb.group({
       nombre: ['', [Validators.required]]
     })
@@ -28,11 +29,15 @@ export class ModificacionMaestrosComponent implements OnInit {
       })
   }
   getDepartamento(id: number) {
-    this.departamentoService.getMestroDepartamento(this.id)
+    this.departamentoService.getMestroDepartamento(id)
       .subscribe(resp => {
-        this.departamento = resp;
-        console.log(resp)
-        this.departamentoForm.controls['nombre'].setValue(this.departamento.nombre)
+        if (!resp) {
+          this.router.navigateByUrl('');
+        } else {
+          this.departamento = resp;
+          console.log(resp)
+          this.departamentoForm.controls['nombre'].setValue(this.departamento.nombre)
+        }
       })
   }
   ModificarDepartamento() {

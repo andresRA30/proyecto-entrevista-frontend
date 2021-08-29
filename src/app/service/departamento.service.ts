@@ -24,4 +24,7 @@ export class DepartamentoService {
   getDetalleEmpleados(id: number) {
     return this.http.get(`http://localhost:4000/detalle-empleados/${id}`);
   }
+  DeleteDetalleEmpleado(id: number) {
+    return this.http.delete(`http://localhost:4000/detalle-empleados/${id}`);
+  }
 }

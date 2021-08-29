@@ -5,7 +5,6 @@ import { MaestrosRoutingModule } from './maestros-routing.module';
 import { ConsultaMaestrosComponent } from './consulta-maestros/consulta-maestros.component';
 import { ModificacionMaestrosComponent } from './modificacion-maestros/modificacion-maestros.component';
 import { ConsultaDetalleComponent } from './consulta-detalle/consulta-detalle.component';
-import { EliminarDetalleComponent } from './eliminar-detalle/eliminar-detalle.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,14 +12,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ConsultaMaestrosComponent,
     ModificacionMaestrosComponent,
-    ConsultaDetalleComponent,
-    EliminarDetalleComponent
+    ConsultaDetalleComponent
   ],
   exports: [
     ConsultaMaestrosComponent,
     ModificacionMaestrosComponent,
-    ConsultaDetalleComponent,
-    EliminarDetalleComponent
+    ConsultaDetalleComponent
   ],
   imports: [
     CommonModule,

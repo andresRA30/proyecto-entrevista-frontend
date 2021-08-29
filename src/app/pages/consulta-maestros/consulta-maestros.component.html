@@ -1,0 +1,30 @@
+<h1>Consultar Maestro</h1>
+<button class="btn btn-primary" (click)="consultarDepartamento()">Consultar informacion</button>
+<hr>
+<table *ngIf="mostrarDepartamento" class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del departamento</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let departamento of departamentos; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{departamento.nombre|titlecase}}</td>
+
+            <td>
+                <tr>
+                    <td> <button class="btn btn-info" (click)="detalleEmpleado(departamento.id)">Detalle</button>
+                    </td>
+                    <td> <button class="btn btn-warning" (click)="modificar(departamento.id)">Modificar</button>
+                    </td>
+                </tr>
+                <!-- <button class="btn btn-warning" (click)="modificar(departamento.id)">Modificar</button> -->
+            </td>
+
+        </tr>
+
+    </tbody>
+</table>

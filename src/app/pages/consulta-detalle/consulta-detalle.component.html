@@ -1,0 +1,25 @@
+<h1>Consulta Detalle de Empleados</h1>
+<hr>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Salario</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{empleado.departamento|titlecase}}</td>
+            <td>{{empleado.nombre|titlecase}}</td>
+            <td>{{empleado.salario|number}}$</td>
+            <td>
+                <button class="btn btn-danger" (click)="borrar(empleado)">Borrar</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

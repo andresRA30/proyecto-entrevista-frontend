@@ -1,0 +1,19 @@
+<h1>Modificar Departamento</h1>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="departamentoForm" (ngSubmit)="ModificarDepartamento()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre del departamento</label>
+                <input type="text" class="form-control" formControlName="nombre">
+
+            </div>
+            <div *ngIf="exitoso" class="alert alert-success" role="alert">
+                Se actualizo exitosamente
+            </div>
+            <button [disabled]="departamentoForm.invalid" type="submit" class="btn btn-primary ">Guardar</button>
+            <button type="submit" class="btn btn-danger ms-3" routerLink="">Cancelar</button>
+        </form>
+    </div>
+
+</div>

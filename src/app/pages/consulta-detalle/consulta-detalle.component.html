@@ -1,5 +1,13 @@
 <h1>Detalle de Empleados </h1>
+
 <button class="btn btn-primary" routerLink="">Regresar</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Crear Empleado
+</button>
+
+<!-- Modal -->
+<app-modal (crear)="crearEmpleado($event)"></app-modal>
 <hr>
 
 <table class="table table-dark table-striped">

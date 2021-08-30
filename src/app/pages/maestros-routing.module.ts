@@ -10,12 +10,21 @@ const routes: Routes = [
     component: ConsultaMaestrosComponent
   },
   {
+    path: 'crearDepartamento',
+    component: ModificacionMaestrosComponent
+  },
+
+  {
     path: 'modificarDepartamento/:id',
     component: ModificacionMaestrosComponent
   },
   {
     path: 'consultaDetalle/:id',
     component: ConsultaDetalleComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

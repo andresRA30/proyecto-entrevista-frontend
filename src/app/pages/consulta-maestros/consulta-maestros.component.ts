@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DepartamentoService } from '../../service/departamento.service';
+import { Departamento } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-consulta-maestros',
@@ -9,14 +10,14 @@ import { DepartamentoService } from '../../service/departamento.service';
 })
 export class ConsultaMaestrosComponent implements OnInit {
 
-  departamentos: any[] = [];
+  departamentos: Departamento[] = [];
   mostrarDepartamento: boolean = false;
   constructor(private departamentoService: DepartamentoService, private router: Router) { }
 
   ngOnInit(): void {
     this.departamentoService.getMaestroDepartamentos()
-      .subscribe((departamentos: any) => {
-        console.log(departamentos)
+      .subscribe(departamentos => {
+
         this.departamentos = departamentos;
       })
   }

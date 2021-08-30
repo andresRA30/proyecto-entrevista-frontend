@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DepartamentoService } from 'src/app/service/departamento.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Empleado } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-consulta-detalle',
@@ -9,18 +10,20 @@ import Swal from 'sweetalert2';
   styleUrls: ['./consulta-detalle.component.css']
 })
 export class ConsultaDetalleComponent implements OnInit {
-  empleados: any[] = [];
+  empleados: Empleado[] = [];
+  id!: number;
   constructor(private departamentoService: DepartamentoService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.getDetalleEmpleado(params.id)
+      this.id = params.id
+      this.getDetalleEmpleado(this.id)
     })
 
   }
   getDetalleEmpleado(id: number) {
     this.departamentoService.getDetalleEmpleados(id)
-      .subscribe((resp: any) => {
+      .subscribe(resp => {
         console.log(resp)
         this.empleados = resp;
       })
@@ -50,5 +53,13 @@ export class ConsultaDetalleComponent implements OnInit {
     console.log("se elimino", empleado)
 
   }
+  crearEmpleado(event: any) {
+    console.log("crear empleado", event)
 
+    this.departamentoService.crearDetalleEmpleado(this.id, event)
+      .subscribe(resp => {
+        console.log(resp)
+        this.ngOnInit();
+      })
+  }
 }

@@ -1,0 +1,28 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Crear Empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="empleadoForm" (ngSubmit)="crearEmpleado()">
+
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Salario</label>
+                        <input type="number" class="form-control" placeholder="Salario" formControlName="salario">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button [disabled]="empleadoForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

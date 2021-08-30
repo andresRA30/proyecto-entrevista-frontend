@@ -6,6 +6,7 @@ import { ConsultaMaestrosComponent } from './consulta-maestros/consulta-maestros
 import { ModificacionMaestrosComponent } from './modificacion-maestros/modificacion-maestros.component';
 import { ConsultaDetalleComponent } from './consulta-detalle/consulta-detalle.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentModule } from '../components/component.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaestrosRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentModule
   ]
 })
 export class MaestrosModule { }

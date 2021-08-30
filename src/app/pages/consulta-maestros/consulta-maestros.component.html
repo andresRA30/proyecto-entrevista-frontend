@@ -1,7 +1,8 @@
 <h1>Consultar Maestro Departamento</h1>
 <button class="btn btn-primary" (click)="consultarDepartamento()">Consultar informacion</button>
+<button class="btn btn-success float-end" routerLink="crearDepartamento">Crear departamento</button>
 <hr>
-<table *ngIf="mostrarDepartamento" class="table table-success table-striped">
+<table *ngIf="mostrarDepartamento" class="table table-dark table-striped">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -16,12 +17,13 @@
 
             <td>
                 <tr>
-                    <td> <button class="btn btn-info" (click)="detalleEmpleado(departamento.id)">Detalle</button>
+                    <td>
+                        <button class="btn btn-info" (click)="detalleEmpleado(departamento.id)">Detalle</button>
                     </td>
-                    <td> <button class="btn btn-warning" (click)="modificar(departamento.id)">Modificar</button>
+                    <td>
+                        <button class="btn btn-warning" (click)="modificar(departamento.id)">Modificar</button>
                     </td>
                 </tr>
-                <!-- <button class="btn btn-warning" (click)="modificar(departamento.id)">Modificar</button> -->
             </td>
 
         </tr>
